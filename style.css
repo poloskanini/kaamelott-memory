@@ -6,21 +6,73 @@
   box-sizing: border-box;
 }
 
+/* FONTS */
+@font-face {
+  font-family: "Papyrus";
+  src: url(papyrus/PAPYRUS.ttf) format("truetype");
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-image: url(https://www.kaamelott.com/image/bg.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width: 100%;
   display: flex;
 }
 
+header {
+  position: absolute;
+  height: 9vh;
+  width: 100%;
+  font-family: 'Papyrus';
+  text-align: center;
+  font-size: 2rem;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  color: rgb(0, 0, 0);
+  font-size: 1.4rem;
+  margin: 20px;
+  flex: 1;
+}
+
+.scoring-sticks {
+  height: 100%;
+  letter-spacing: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  flex: 1;
+}
+
+/* .scoring-sticks::before {
+  content: "_____";
+  position: absolute;
+  top: 3px;
+} */
+
 .memory-game {
-  width: 700px;
-  height: 700px;
+  margin: auto;
+  min-width: clamp(375px, 25vw, 700px);
+  min-height: clamp(350px, 25vw, 700px);
+  width: 40vw;
+  height: 60vh;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
   perspective: 1000px;
+  position: relative;
+  justify-content: center;
 }
 
 .memory-card {
@@ -30,7 +82,7 @@ body {
   position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
-  transition: all .5s;
+  transition: transform .5s;
   opacity: 1;
 }
 
@@ -46,12 +98,8 @@ body {
 .memory-card.fade-out {
   opacity: 0;
   transition: opacity 4s;
-  /* animation: fadeOut ease 8s normal;
-  -webkit-animation: fadeOut ease 8s;
-  -moz-animation: fadeOut ease 8s;
-  -o-animation: fadeOut ease 8s;
-  -ms-animation: fadeOut ease 8s; */
 }
+
 @keyframes fadeOut {
   0% {
     opacity:1;
@@ -114,10 +162,7 @@ body {
   transform: rotateY(180deg);
 }
 
-img {
-  width: clamp(4rem, 10vw, 10rem);
-  height: clamp(4rem, 10vw, 10rem);
-
+.memory-card img {
   object-fit: cover;
   cursor: pointer;
   border: 1px solid black;
@@ -127,6 +172,10 @@ img {
               0 8px 8px rgba(0,0,0,0.15);
 }
 
-@media only screen and (min-device-width : 320px) {
- 
+/** MEDIA QUERIES **/
+/* Mobile Landscape only */
+@media screen and (orientation:landscape) and (max-height: 400px) {
+  .memory-game {
+    margin: 2rem auto;
+  }
 }

@@ -1,9 +1,11 @@
 const cards = document.querySelectorAll('.memory-card');
+const score = document.querySelector('.score');
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let matchNumber = 0;
+let hitNumber = 0;
 
 function flipCard() {
   if (lockBoard) return;
@@ -19,6 +21,7 @@ function flipCard() {
   }
     // Second click
     secondCard = this;
+    hitNumber++;
     checkForMatch();   // -> Lance la fonction de vérification
 }
 
@@ -26,10 +29,23 @@ function flipCard() {
 function checkForMatch() {
   let isMatch = firstCard.dataset.cover === secondCard.dataset.cover;
   isMatch ? disableCards() : unflipCards();
-}
+
+  // Adding score
+
+  // Si hitNumber <
+  if(hitNumber < 2) {
+    console.log(`${hitNumber} coup`)
+    score.textContent = `${hitNumber} coup`;
+  } else {
+    console.log(`${hitNumber} coups`)
+    score.textContent = `${hitNumber} coups`;
+  }
+};
 
 // Disable cards (It's a match !)
 function disableCards() {
+  firstCard.style.border="3px solid lime";
+  secondCard.style.border="3px solid lime";
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
@@ -37,20 +53,26 @@ function disableCards() {
     setTimeout(() => {
       winGame();
     }, 500);
-  }
+  };
   resetBoard();
 }
 
 // Unflip cards (Not a match)
 function unflipCards() {
   lockBoard = true;
+  setTimeout(() => {
+    firstCard.style.border="3px solid red";
+    secondCard.style.border="3px solid red";
+  }, 200);
 
   setTimeout(() => {
+    firstCard.style.border="none";
+    secondCard.style.border="none";
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
 
     resetBoard();
-  }, 1000);
+  }, 1100);
 }
 
 // Reset Board
