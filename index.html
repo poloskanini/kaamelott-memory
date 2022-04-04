@@ -13,13 +13,20 @@
 
 <body>
 
+  <!-- Reboot -->
   <div class="reboot">
     <h2 class="youwon"></h2>
-    <button class="play-again"onclick="window.location.reload(false)">Rejouer</button>
   </div>
 
+  <!-- Header -->
   <header>
-    <p class="score"></p>
+    <div class="rank">
+      <p class="rank-text"></p>
+    </div>
+    <div class="score">
+      <p class="score-text"></p>
+    </div>
+
     <!-- <div class="scoring-sticks">
       <del>
         <div class="scoring-sticks-wrapper">
@@ -114,6 +121,8 @@
     </div>
     
   </section>
+
+  <button class="play-again"onclick="window.location.reload(false)">Rejouer</button>
 
   <!-- My JS -->
   <script src="script.js"></script>

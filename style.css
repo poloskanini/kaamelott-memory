@@ -25,6 +25,7 @@ body {
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
 }
 
 /* RESTART */
@@ -55,7 +56,7 @@ body {
   margin: 1rem 0;
 }
 
-.play-again {
+button {
   background-color: #222;
   color: #fff;
   border-radius: 4px;
@@ -64,13 +65,13 @@ body {
   font-size: 16px;
   font-weight: bold;
   line-height: 1.5;
-  margin: 0;
+  margin: 2rem auto;
   min-height: 44px;
   padding: 9px 20px 8px;
   border: 1px solid black;
   text-align: center;
   width: 7rem;
-  transition: all ease .2s;
+  transition: all ease .1s;
   font-family: 'Papyrus';
 }
 
@@ -95,11 +96,20 @@ header {
   transition: all ease .3s;
 }
 
+h1 {
+  font-size: clamp(1.5rem, 2vw, 4rem);
+}
+
+.rank,
 .score {
   color: rgb(0, 0, 0);
-  font-size: 1.èrem;
+  font-size: clamp(1rem, 2vw, 2.4rem);
   margin: 20px;
   flex: 1;
+}
+
+.rank {
+  font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 .scoring-sticks {
@@ -109,7 +119,6 @@ header {
   justify-content: center;
   align-items: center;
   margin: 20px;
-  flex: 1;
 }
 
 /* .scoring-sticks::before {
@@ -120,8 +129,8 @@ header {
 
 .memory-game {
   margin: auto;
-  min-width: clamp(375px, 30vw, 800px);
-  min-height: clamp(350px, 30vw, 800px);
+  min-width: clamp(375px, 40vw, 800px);
+  min-height: clamp(350px, 40vw, 800px);
   height: 60vh;
   display: flex;
   flex-wrap: wrap;

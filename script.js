@@ -5,6 +5,7 @@ let reboot = document.querySelector('.reboot');
 let header = document.querySelector('header');
 const score = document.querySelector('.score');
 let playAgain = document.querySelector('.play-again');
+let rankText = document.querySelector('.rank-text');
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -41,10 +42,19 @@ function checkForMatch() {
   // Si hitNumber <
   if(hitNumber < 2) {
     console.log(`${hitNumber} coup`)
-    score.textContent = `${hitNumber} coup`;
+    score.textContent = `Score : ${hitNumber} coup`;
+    rankText.textContent = 'Rang: Vous êtes un Chevalier'
   } else {
-    console.log(`${hitNumber} coups`)
-    score.textContent = `${hitNumber} coups`;
+    if(hitNumber > 11) {
+      rankText.textContent = 'Rang: Vous êtes un Petit pédestre'
+    }
+    if(hitNumber > 16) {
+      rankText.textContent = 'Rang: Vous êtes un Pécore'
+    }
+    if(hitNumber > 21) {
+      rankText.textContent = 'Bon...vous êtes un Sent-la-pisse...'
+    }
+    score.textContent = `Score: ${hitNumber} coups`;
   }
 };
 
@@ -55,7 +65,7 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
-  if(matchNumber === 1) {
+  if(matchNumber === 8) {     // Dés qu'on atteint 8 MATCHS :
     setTimeout(() => {
       winGame();
     }, 500);
@@ -97,11 +107,6 @@ function resetBoard() {
 
 // Wingame
 function winGame() {
-  // cards.forEach(card => {
-  //   setTimeout(() => {
-  //     card.classList.add('fade-out');
-  //   }, 1000);
-  // })
   memoryGame.classList.add('fade-out');
 
   setTimeout(() => {
@@ -110,10 +115,6 @@ function winGame() {
     youWon.textContent = `Vous avez gagné en ${hitNumber} coups`;
     console.log(`Vous avez gagné en ${hitNumber} coups`);
   }, 1000);
-}
-
-function restart() {
-  
 }
 
 // Loop on cards with a forEach (querySelectorAll only not enough)
