@@ -1,5 +1,10 @@
 const cards = document.querySelectorAll('.memory-card');
+const memoryGame = document.querySelector('.memory-game');
+let youWon = document.querySelector('.youwon');
+let reboot = document.querySelector('.reboot');
+let header = document.querySelector('header');
 const score = document.querySelector('.score');
+let playAgain = document.querySelector('.play-again');
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -7,6 +12,7 @@ let firstCard, secondCard;
 let matchNumber = 0;
 let hitNumber = 0;
 
+// Flip Card
 function flipCard() {
   if (lockBoard) return;
   if(this === firstCard) return;
@@ -49,7 +55,7 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
-  if(matchNumber === 8) {
+  if(matchNumber === 1) {
     setTimeout(() => {
       winGame();
     }, 500);
@@ -91,11 +97,23 @@ function resetBoard() {
 
 // Wingame
 function winGame() {
-  cards.forEach(card => {
-    setTimeout(() => {
-      card.classList.add('fade-out');
-    }, 1000);
-  })
+  // cards.forEach(card => {
+  //   setTimeout(() => {
+  //     card.classList.add('fade-out');
+  //   }, 1000);
+  // })
+  memoryGame.classList.add('fade-out');
+
+  setTimeout(() => {
+    reboot.classList.add('fade-in');
+    youWon.classList.add('fade-in');
+    youWon.textContent = `Vous avez gagné en ${hitNumber} coups`;
+    console.log(`Vous avez gagné en ${hitNumber} coups`);
+  }, 1000);
+}
+
+function restart() {
+  
 }
 
 // Loop on cards with a forEach (querySelectorAll only not enough)
