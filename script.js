@@ -45,15 +45,15 @@ function checkForMatch() {
     score.textContent = `Score : ${hitNumber} coup`;
     rankText.textContent = 'Rang: Vous êtes un Chevalier🤴🏼';
   } else {
-    if(hitNumber > 3) {
+    if(hitNumber > 9) {
       rankText.textContent = 'Rang: Vous êtes un Petit pédestre🦶🏼';
       rankText.style.color="#fed330"
     }
-    if(hitNumber > 4) {
+    if(hitNumber > 14) {
       rankText.textContent = 'Rang: Vous êtes un Pécore🐄';
       rankText.style.color="#fa8231"
     }
-    if(hitNumber > 5) {
+    if(hitNumber > 19) {
       rankText.textContent = 'Bon...vous êtes un Sent-la-pisse...🤦🏼';
       rankText.style.color="red"
     }
@@ -68,7 +68,7 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
-  if(matchNumber === 1) {     // Dés qu'on atteint 8 MATCHS :
+  if(matchNumber === 8) {     // Dés qu'on atteint 8 MATCHS :
     setTimeout(() => {
       winGame();
     }, 500);
@@ -132,13 +132,14 @@ function resetAll() {
     matchNumber = 0;
     score.textContent = "";
     rankText.textContent = "";
+    rankText.style.color="";
     youWon.textContent = "";
   });
 
   setTimeout(() => {
     memoryGame.classList.remove('fade-out');
     memoryGame.classList.add('fade-in');
-  }, 500);
+  }, 200);
 };
 
 // Loop on cards with a forEach (querySelectorAll only not enough)
