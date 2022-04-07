@@ -46,9 +46,10 @@ body {
   visibility: hidden;
 }
 
-.reboot.fade-in {
+.reboot.fade-in,
+.memory-game.fade-in {
   opacity: 1;
-  transition: opacity 3s;
+  transition: opacity 2s;
   visibility: visible;
 }
 
@@ -89,7 +90,7 @@ header {
   width: 100%;
   text-align: center;
   font-size: 2rem;
-  background: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, 1);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -112,6 +113,16 @@ h1 {
   font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
+.shake {
+  animation: scaling 1s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes scaling {
+  100% {
+    transform: scale(2);
+  }
+}
+
 .scoring-sticks {
   height: 100%;
   letter-spacing: -10px;
@@ -120,12 +131,6 @@ h1 {
   align-items: center;
   margin: 20px;
 }
-
-/* .scoring-sticks::before {
-  content: "_____";
-  position: absolute;
-  top: 3px;
-} */
 
 .memory-game {
   margin: auto;

@@ -43,16 +43,19 @@ function checkForMatch() {
   if(hitNumber < 2) {
     console.log(`${hitNumber} coup`)
     score.textContent = `Score : ${hitNumber} coup`;
-    rankText.textContent = 'Rang: Vous êtes un Chevalier'
+    rankText.textContent = 'Rang: Vous êtes un Chevalier🤴🏼';
   } else {
-    if(hitNumber > 11) {
-      rankText.textContent = 'Rang: Vous êtes un Petit pédestre'
+    if(hitNumber > 3) {
+      rankText.textContent = 'Rang: Vous êtes un Petit pédestre🦶🏼';
+      rankText.style.color="#fed330"
     }
-    if(hitNumber > 16) {
-      rankText.textContent = 'Rang: Vous êtes un Pécore'
+    if(hitNumber > 4) {
+      rankText.textContent = 'Rang: Vous êtes un Pécore🐄';
+      rankText.style.color="#fa8231"
     }
-    if(hitNumber > 21) {
-      rankText.textContent = 'Bon...vous êtes un Sent-la-pisse...'
+    if(hitNumber > 5) {
+      rankText.textContent = 'Bon...vous êtes un Sent-la-pisse...🤦🏼';
+      rankText.style.color="red"
     }
     score.textContent = `Score: ${hitNumber} coups`;
   }
@@ -65,7 +68,7 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
-  if(matchNumber === 8) {     // Dés qu'on atteint 8 MATCHS :
+  if(matchNumber === 1) {     // Dés qu'on atteint 8 MATCHS :
     setTimeout(() => {
       winGame();
     }, 500);
@@ -107,6 +110,7 @@ function resetBoard() {
 
 // Wingame
 function winGame() {
+  memoryGame.classList.add('fade-in');
   memoryGame.classList.add('fade-out');
 
   setTimeout(() => {
@@ -117,5 +121,25 @@ function winGame() {
   }, 1000);
 }
 
+function resetAll() {
+  cards.forEach(card => {
+    card.classList.remove('flip');
+    card.style.border="none";
+    card.addEventListener('click', flipCard);
+    let randomPos = Math.floor(Math.random() * 16);
+    card.style.order = randomPos;
+    hitNumber = 0;
+    matchNumber = 0;
+    score.textContent = "";
+    rankText.textContent = "";
+    youWon.textContent = "";
+  });
+
+  setTimeout(() => {
+    memoryGame.classList.remove('fade-out');
+    memoryGame.classList.add('fade-in');
+  }, 500);
+};
+
 // Loop on cards with a forEach (querySelectorAll only not enough)
-cards.forEach(card => card.addEventListener('click', flipCard))
+cards.forEach(card => card.addEventListener('click', flipCard));
