@@ -13,6 +13,31 @@ let firstCard, secondCard;
 let matchNumber = 0;
 let hitNumber = 0;
 
+let characters = [
+"Arthur Pendragon",
+"Léodagan",
+"Loth d’Orcanie",
+"Goustan le Cruel",
+"Calogrenant",
+"Perceval",
+"Karadoc",
+"Guenièvre",
+"Bohort",
+"Caiüs Camillus",
+"Lancelot du Lac",
+"Dame Séli",
+"Venec",
+"Merlin",
+"Yvain Chevalier au Lion",
+"Le Tavernier",
+"Grüdü",
+"Dagonet",
+"Le Roi Burgonde",
+"Guethenoc",
+"Roparzh",
+"Kadoc"
+]
+
 // Flip Card
 function flipCard() {
   if (lockBoard) return;
@@ -39,21 +64,86 @@ function checkForMatch() {
 
   // Adding score
 
-  // Si hitNumber <
+  // Si hitNumber
   if(hitNumber < 2) {
-    console.log(`${hitNumber} coup`)
     score.textContent = `Score : ${hitNumber} coup`;
-    rankText.textContent = 'Rang: Vous êtes un Chevalier🤴🏼';
+    rankText.textContent += `Vous êtes ${characters[0]}`;
   } else {
-    if(hitNumber > 9) {
-      rankText.textContent = 'Rang: Vous êtes un Petit pédestre🦶🏼';
+    if(hitNumber > 8) {
+      rankText.textContent = `Vous êtes ${characters[1]}`;
       rankText.style.color="#fed330"
     }
+    if(hitNumber > 9) {
+      rankText.textContent = `Vous êtes ${characters[2]}`;
+    }
+    if(hitNumber > 10) {
+      rankText.textContent = `Vous êtes ${characters[3]}`;
+    }
+    if(hitNumber > 11) {
+      rankText.textContent = `Vous êtes ${characters[4]}`;
+    }
+    if(hitNumber > 12) {
+      rankText.textContent = `Vous êtes ${characters[5]}`;
+    }
+    if(hitNumber > 13) {
+      rankText.textContent = `Vous êtes ${characters[6]}`;
+    }
     if(hitNumber > 14) {
-      rankText.textContent = 'Rang: Vous êtes un Pécore🐄';
-      rankText.style.color="#fa8231"
+      rankText.textContent = `Vous êtes ${characters[7]}`;
+    }
+    if(hitNumber > 15) {
+      rankText.textContent = `Vous êtes ${characters[8]}`;
+    }
+    if(hitNumber > 16) {
+      rankText.textContent = `Vous êtes ${characters[9]}`;
+    }
+    if(hitNumber > 17) {
+      rankText.textContent = `Vous êtes ${characters[10]}`;
+    }
+    if(hitNumber > 18) {
+      rankText.textContent = `Vous êtes ${characters[11]}`;
     }
     if(hitNumber > 19) {
+      rankText.textContent = `Vous êtes ${characters[12]}`;
+      rankText.style.color="#fa8231"
+    }
+    if(hitNumber > 20) {
+      rankText.textContent = `Vous êtes ${characters[10]}`;
+    }
+    if(hitNumber > 21) {
+      rankText.textContent = `Vous êtes ${characters[11]}`;
+    }
+    if(hitNumber > 22) {
+      rankText.textContent = `Vous êtes ${characters[12]}`;
+    }
+    if(hitNumber > 23) {
+      rankText.textContent = `Vous êtes ${characters[13]}`;
+    }
+    if(hitNumber > 24) {
+      rankText.textContent = `Rang: Vous êtes ${characters[14]}`;
+    }
+    if(hitNumber > 25) {
+      rankText.textContent = `Vous êtes ${characters[15]}`;
+    }
+    if(hitNumber > 26) {
+      rankText.textContent = `Vous êtes ${characters[16]}`;
+    }
+    if(hitNumber > 27) {
+      rankText.textContent = `Vous êtes ${characters[17]}`;
+    }
+    if(hitNumber > 28) {
+      rankText.textContent = `Vous êtes ${characters[18]}`;
+    }
+    if(hitNumber > 29) {
+      rankText.textContent = `Vous êtes ${characters[19]}`;
+    }
+    if(hitNumber > 30) {
+      rankText.textContent = `Vous êtes ${characters[20]}`;
+    }
+    if(hitNumber > 31) {
+      rankText.textContent = `Vous êtes ${characters[21]}`;
+    }
+    if(hitNumber > 32) {
       rankText.textContent = 'Bon...vous êtes un Sent-la-pisse...🤦🏼';
       rankText.style.color="red"
     }
@@ -91,7 +181,7 @@ function unflipCards() {
     secondCard.classList.remove('flip');
 
     resetBoard();
-  }, 1100);
+  }, 900);
 }
 
 // Reset Board
@@ -116,8 +206,8 @@ function winGame() {
   setTimeout(() => {
     reboot.classList.add('fade-in');
     youWon.classList.add('fade-in');
-    youWon.textContent = `Vous avez gagné en ${hitNumber} coups`;
-    console.log(`Vous avez gagné en ${hitNumber} coups`);
+    youWon.textContent = `Vous avez gagné en ${hitNumber} coups.
+    ${rankText.textContent}.`;
   }, 1000);
 }
 

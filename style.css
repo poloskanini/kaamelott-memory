@@ -42,7 +42,7 @@ body {
   z-index: 10;
   opacity: 0;
   width: 70%;
-  line-height: 2.5rem;
+  /* line-height: 2.5rem; */
   visibility: hidden;
 }
 
@@ -55,6 +55,7 @@ body {
 
 .youwon {
   margin: 1rem 0;
+  font-size: clamp(2rem, 2vw, 5rem);
 }
 
 button {
@@ -66,7 +67,7 @@ button {
   font-size: 16px;
   font-weight: bold;
   line-height: 1.5;
-  margin: 2rem auto;
+  margin: 0 auto 2rem;
   min-height: 44px;
   padding: 9px 20px 8px;
   border: 1px solid black;
@@ -74,6 +75,7 @@ button {
   width: 7rem;
   transition: all ease .1s;
   font-family: 'Papyrus';
+  top: -10rem;
 }
 
 .play-again:hover,
@@ -123,18 +125,9 @@ h1 {
   }
 }
 
-.scoring-sticks {
-  height: 100%;
-  letter-spacing: -10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
 .memory-game {
   margin: auto;
-  min-width: clamp(375px, 40vw, 800px);
+  min-width: clamp(350px, 40vw, 800px);
   min-height: clamp(350px, 40vw, 800px);
   height: 60vh;
   display: flex;
