@@ -14,29 +14,30 @@ let matchNumber = 0;
 let hitNumber = 0;
 
 let characters = [
-"Arthur Pendragon",
-"Léodagan",
-"Loth d’Orcanie",
-"Goustan le Cruel",
-"Calogrenant",
-"Perceval",
-"Karadoc",
-"Guenièvre",
-"Bohort",
-"Caiüs Camillus",
-"Lancelot du Lac",
-"Dame Séli",
-"Venec",
-"Merlin",
-"Yvain Chevalier au Lion",
-"Le Tavernier",
-"Grüdü",
-"Dagonet",
-"Le Roi Burgonde",
-"Guethenoc",
-"Roparzh",
-"Kadoc"
+"Arthur Pendragon 👑",
+"Léodagan 🩸",
+"Loth d’Orcanie ✨",
+"Goustan le Cruel 👊🏼",
+"Calogrenant 🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+"Perceval 🌌",
+"Karadoc 🥓",
+"Guenièvre 👸🏻",
+"Dame Séli 👩🏻",
+"Lancelot du Lac 🦎",
+"Bohort 🧺",
+"Caiüs Camillus 🛡️",
+"Venec 🦊",
+"Merlin 🧙🏼‍♂️",
+"Yvain Chevalier au Lion 🦁",
+"Le Tavernier 🍺",
+"Grüdü 🦂",
+"Dagonet 🔰",
+"Le Roi Burgonde 🥄",
+"Guethenoc 🐖",
+"Roparzh 🐴",
+"Kadoc 🐔"
 ]
+console.log(characters.length)
 
 // Flip Card
 function flipCard() {
@@ -108,43 +109,34 @@ function checkForMatch() {
       rankText.style.color="#fa8231"
     }
     if(hitNumber > 20) {
-      rankText.textContent = `Vous êtes ${characters[10]}`;
-    }
-    if(hitNumber > 21) {
-      rankText.textContent = `Vous êtes ${characters[11]}`;
-    }
-    if(hitNumber > 22) {
-      rankText.textContent = `Vous êtes ${characters[12]}`;
-    }
-    if(hitNumber > 23) {
       rankText.textContent = `Vous êtes ${characters[13]}`;
     }
-    if(hitNumber > 24) {
-      rankText.textContent = `Rang: Vous êtes ${characters[14]}`;
+    if(hitNumber > 21) {
+      rankText.textContent = `Vous êtes ${characters[14]}`;
     }
-    if(hitNumber > 25) {
+    if(hitNumber > 22) {
       rankText.textContent = `Vous êtes ${characters[15]}`;
     }
-    if(hitNumber > 26) {
+    if(hitNumber > 23) {
       rankText.textContent = `Vous êtes ${characters[16]}`;
     }
-    if(hitNumber > 27) {
+    if(hitNumber > 24) {
       rankText.textContent = `Vous êtes ${characters[17]}`;
     }
-    if(hitNumber > 28) {
+    if(hitNumber > 25) {
       rankText.textContent = `Vous êtes ${characters[18]}`;
     }
-    if(hitNumber > 29) {
+    if(hitNumber > 26) {
       rankText.textContent = `Vous êtes ${characters[19]}`;
     }
-    if(hitNumber > 30) {
+    if(hitNumber > 27) {
       rankText.textContent = `Vous êtes ${characters[20]}`;
     }
-    if(hitNumber > 31) {
+    if(hitNumber > 28) {
       rankText.textContent = `Vous êtes ${characters[21]}`;
     }
-    if(hitNumber > 32) {
-      rankText.textContent = 'Bon...vous êtes un Sent-la-pisse...🤦🏼';
+    if(hitNumber > 29) {
+      rankText.textContent = '💁🏼‍♂️Bon...vous êtes un Sent-la-pisse...🤦🏼';
       rankText.style.color="red"
     }
     score.textContent = `Score: ${hitNumber} coups`;
