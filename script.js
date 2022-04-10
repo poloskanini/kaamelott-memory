@@ -150,7 +150,7 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
-  if(matchNumber === 8) {     // Dés qu'on atteint 8 MATCHS :
+  if(matchNumber === 1) {     // Dés qu'on atteint 8 MATCHS :
     setTimeout(() => {
       winGame();
     }, 500);
@@ -197,6 +197,7 @@ function winGame() {
 
   setTimeout(() => {
     reboot.classList.add('fade-in');
+    youWon.style.display="block";
     youWon.classList.add('fade-in');
     youWon.textContent = `Vous avez gagné en ${hitNumber} coups.
     ${rankText.textContent}.`;
@@ -216,6 +217,7 @@ function resetAll() {
     rankText.textContent = "";
     rankText.style.color="";
     youWon.textContent = "";
+    youWon.style.display="none";
   });
 
   setTimeout(() => {

@@ -54,6 +54,7 @@ body {
 }
 
 .youwon {
+  display: none;
   margin: 1rem 0;
   font-size: clamp(1.5rem, 2vw, 5rem);
 }
