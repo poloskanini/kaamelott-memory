@@ -158,7 +158,7 @@ function disableCards() {
   resetBoard();
 }
 
-// Unflip cards (Not a match)
+// Unflip cards (Not match)
 function unflipCards() {
   lockBoard = true;
   setTimeout(() => {
