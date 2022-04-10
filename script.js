@@ -150,7 +150,7 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   matchNumber++;
-  if(matchNumber === 8) {     // Dés qu'on atteint 8 MATCHS :
+  if(matchNumber === 1) {     // Dés qu'on atteint 8 MATCHS :
     setTimeout(() => {
       winGame();
     }, 500);
